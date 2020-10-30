@@ -1,24 +1,66 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# テーブル設計
 
-Things you may want to cover:
+## Usersテーブル
 
-* Ruby version
+| column           | Type    | Options     |
+| ---------------- | ------- | ----------- |
+| email            | string  | null: false |
+| password         | string  | null: false |
+| nickname         | string  | null: false |
 
-* System dependencies
+### Association
 
-* Configuration
+- has_many :Letters
+- has_many :Addresses
+- has_many :Posits
+- has_many :Blogs
 
-* Database creation
+## Letters
 
-* Database initialization
+| column                | Type       | Options                                       |
+| --------------------- | ---------- | --------------------------------------------- |
+| address               | string     | null: false                                   |
+| thanks                | text       | null: false                                   |
+| user                  | references | null: false, foreign_key: true                |
 
-* How to run the test suite
+### Association
 
-* Services (job queues, cache servers, search engines, etc.)
+belongs_to :User
+belongs_to :Address
 
-* Deployment instructions
+## Addresses
 
-* ...
+| column     | Type       | Options                        |
+| ---------- | ---------- | ------------------------------ |
+| letter_id  | references | null: false, foreign_key: true |
+| address_id | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :Letter
+- belongs_to :User
+
+## Posits
+
+| column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| posit   | string     | null: false                    |
+| user    | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :User
+
+## Blogs
+
+| column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| text    | text       | null: false                    |
+| title   | string     | null: false                    |
+| user    | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :User
