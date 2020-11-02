@@ -76,38 +76,31 @@ a {
 .en-counter{
   width: 50%;
   height: 50px;
-}
-
-.login {
-  width: 25%;
-  height: 50px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
 }
 
-.login a{
+.en-counter p{
   display: block;
-  background-color: rgb(255, 217, 0);
-  color: green;
-  border-radius: 0.5em;
-  padding: 10px;
-}
-
-.login a:hover{
-  background-color: green;
+  text-align: center;
   color: gold;
+  padding-right: 20px;
+  font-size: 30px;
+  letter-spacing: 10px;
+  font-family: initial;
+  text-shadow: 1px 1px 0 green,-1px 1px 0 green,1px -1px 0 green,-1px -1px 0 green;
 }
 
-.new-registration {
+.logout .new-posit .new-blog .login .new-registration {
   width: 25%;
   height: 50px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
-.new-registration a{
+.sign-block a {
   display: block;
   background-color: rgb(255, 217, 0);
   color: green;
@@ -115,7 +108,7 @@ a {
   padding: 10px;
 }
 
-.new-registration a:hover{
+.sign-block a:hover{
   background-color: green;
   color: gold;
 }
