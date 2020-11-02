@@ -1,0 +1,64 @@
+.new-session-main{
+  height: 100vh;
+  background-color: khaki;
+}
+
+.sign-in-box{
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sign-in {
+  height: 65px;
+  width: 25%;
+}
+
+.sign-in h2 {
+  text-align: center;
+  background: gold;
+  color: green;
+  border-radius: 0.5em;
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 30px;
+  letter-spacing: 10px;
+}
+
+.session-box {
+  width: 100vh;
+  height: calc(100% - 65px);
+  margin: 0 auto;
+  padding-top: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.form-session-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding-top: 40px;
+}
+
+.session-submit{
+  width: 100%;
+  background-color: gold;
+  color: green;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 16px 8px;
+}
+
+.session-submit:hover{
+  background-color: green;
+  color: gold;
+}
+
+.login-flash-message {
+  text-align: center;
+  color: red;
+}
