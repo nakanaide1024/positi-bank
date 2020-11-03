@@ -11,13 +11,11 @@
     </div>
     <div class="user-name"> 
       <% if user_signed_in?%>
-        <%= link_to "#" do%>
-          <h2><%= current_user.nickname %>さんのページ<h2>
+        <%= link_to posits_path do%>
+          <h2>マイページへ</h2>
         <% end %>
       <% else %>
-        <%= link_to "#" do%>
-          <h2>ゲストさん、ようこそ<h2>
-        <% end %>
+        <h2>ゲストさん、ようこそ</h2>
       <% end %>
     </div>
   </div>

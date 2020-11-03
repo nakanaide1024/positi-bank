@@ -1,5 +1,6 @@
 class PositsController < ApplicationController
   def index
+    @posits = Posit.includes(:user).order('created_at DESC')
   end
 
   def new
