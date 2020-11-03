@@ -10,8 +10,14 @@
       <% end %>
     </div>
     <div class="user-name"> 
-      <%= link_to "#" do%>
-        <h2>ゲストさん、ようこそ<h2>
+      <% if user_signed_in?%>
+        <%= link_to "#" do%>
+          <h2><%= current_user.nickname %>さんのページ<h2>
+        <% end %>
+      <% else %>
+        <%= link_to "#" do%>
+          <h2>ゲストさん、ようこそ<h2>
+        <% end %>
       <% end %>
     </div>
   </div>

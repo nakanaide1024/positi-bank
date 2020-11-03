@@ -4,6 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :nickname, presence: true, uniqueness: true,
-                       length: { minimum: 3, maximum: 10}
+  validates :nickname, presence: true, uniqueness: {case_sensitive: true},
+                       length: { minimum: 3, maximum: 50}
+  validates :password, format: { with: /\A[a-z0-9]+\z/i },
+                       confirmation: true
 end
