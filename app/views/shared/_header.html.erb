@@ -1,0 +1,49 @@
+<div class="top-page-header">
+  <div class="title-block">
+    <div class="menu">
+    <%=image_tag("f_f_event_66_s512_f_event_66_0bg.png", :size => "40x40")%>
+    <h2>MENU</h2>
+    </div>
+    <div class="title">
+      <%= link_to root_path do %>
+        <h1>PoSiTi-BaNK</h1>
+      <% end %>
+    </div>
+    <div class="user-name"> 
+      <% if user_signed_in?%>
+        <%= link_to "#" do%>
+          <h2><%= current_user.nickname %>さんのページ<h2>
+        <% end %>
+      <% else %>
+        <%= link_to "#" do%>
+          <h2>ゲストさん、ようこそ<h2>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="sign-block">
+    <% if user_signed_in? %>
+    <div class="en-counter">
+      <p>123,456,789縁</p>
+    </div>
+    <div class="logout">
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+    </div>
+    <div class="new-posit">
+      <%= link_to "投稿する", "#" %>
+    </div>
+    <div class="new-blog">
+      <%= link_to "記事を書く", "#" %>
+    </div>
+    <% else %>
+    <div class="en-counter">
+    </div>
+    <div class="login">
+      <%= link_to "ログイン", new_user_session_path %>
+    </div>
+    <div class="new-registration">
+      <%= link_to "新規登録", new_user_registration_path %>
+    </div>
+    <% end %>
+  </div>
+</div>

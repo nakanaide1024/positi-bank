@@ -1,0 +1,51 @@
+<%= render "shared/create_header" %>
+
+<div class="new-registration-main">
+  <div class="sign-up-box">
+    <div class="sign-up">
+      <h2>新規会員登録</h2>
+    </div>
+  </div>
+  <div class="registration-box">
+    <%= form_with model: @user, url:user_registration_path, class: 'registration-form', local: true do |f| %>
+      <%= render "devise/shared/error_messages", model: @user %>
+      
+      <div class="form-box">
+        <div class="form-text-wrap">
+         <label class="form-text">ニックネーム</label>
+         <span>※必須</span>
+       </div>
+       <%= f.text_area :nickname, class:"input-default", id:"nickname", placeholder:"例) positi太郎", maxlength:"40" %>
+      </div>
+      <div class="form-box">
+        <div class="form-text-wrap">
+          <label class="form-text">メールアドレス</label>
+          <span>※必須</span>
+        </div>
+        <%= f.email_field :email, class:"input-default", id:"email", placeholder:"PC・携帯どちらでも可", autofocus: true %>
+      </div>
+
+      <div class="form-box">
+        <div class="form-text-wrap">
+          <label class="form-text">パスワード</label>
+          <span>※必須、英字と数字の両方を含めて設定してください</span>
+        </div>
+        <%= f.password_field :password, class:"input-default", id:"password", placeholder:"6文字以上の半角英数字" %>
+      </div>
+
+      <div class="form-box">
+        <div class="form-text-wrap">
+          <label class="form-text">パスワード(確認)</label>
+         <span>※必須</span>
+        </div>
+        <%= f.password_field :password_confirmation, class:"input-default", id:"password-confirmation", placeholder:"同じパスワードを入力して下さい" %>
+      </div>
+     <div class="form-box">
+       <div class="form-text-wrap">
+         <%= f.submit "登録", class:"registration-submit" %>
+       </div>
+     </div>
+    <% end %>
+  </div>
+</div>
+<%= render "shared/footer" %>

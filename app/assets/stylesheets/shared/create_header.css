@@ -1,0 +1,21 @@
+.create-page-header{
+  width: 100vw;
+  height: 130px;
+  background-color: greenyellow;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.create-page-title h1{
+  display: block;
+  text-align: center;
+  letter-spacing: 20px;
+  text-decoration: none;
+  font-size: 150%;
+  background: gold;
+  margin: 0 10px;
+  padding: 0.5em;
+  color: green;
+  border-radius: 0.5em;
+}
