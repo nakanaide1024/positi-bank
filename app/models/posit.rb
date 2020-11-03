@@ -1,0 +1,2 @@
+class Posit < ApplicationRecord
+end
