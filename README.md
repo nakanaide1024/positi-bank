@@ -55,11 +55,11 @@ belongs_to :Address
 
 ## Blogs
 
-| column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| text    | text       | null: false                    |
-| title   | string     | null: false                    |
-| user    | references | null: false, foreign_key: true |
+| column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| blog_text    | text       | null: false                    |
+| title        | string     | null: false                    |
+| user         | references | null: false, foreign_key: true |
 
 ### Association
 

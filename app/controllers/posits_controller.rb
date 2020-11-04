@@ -1,6 +1,6 @@
 class PositsController < ApplicationController
-  before_action :authenticate_user!, only: [:index]
-  
+  before_action :authenticate_user!, only: [:index, :new, :destroy]
+
   def index
     @posits = Posit.includes(:user).order('created_at DESC')
   end

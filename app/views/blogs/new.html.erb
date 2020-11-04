@@ -1,0 +1,16 @@
+<%= render "shared/create_header" %>
+<div class='main'>
+  <div class='blog-form'>
+    <%= form_with model: @blog, class:"blog-box", local: true do |f| %>
+      <%= render "shared/error_messages", model: @blog %>
+    <%= f.text_field :title, class:"blog-title", placeholder:"タイトルを記入しよう！", maxlength:"140"%>
+    <%= f.text_area :text, class:"blog-text", placeholder:"良かった体験や、感動した出来事などをブログにしよう！" %>
+    <div class="form-box">
+       <div class="form-text-wrap">
+         <%= f.submit "投稿", class:"posit-submit" %>
+       </div>
+     </div>
+    <% end %>
+  </div>
+</div>
+<%= render "shared/footer"%>
