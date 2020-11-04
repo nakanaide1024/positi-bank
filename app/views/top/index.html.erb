@@ -1,9 +1,42 @@
 <%= render "shared/header" %>
 <div class='main'>
-  <div class="posit-view">
-  
+  <div class="contents-view">
+    <div class="posit-view">
+      <p>新着投稿</p>
+      <div class="posit-view-box">
+        <ul class="posit-lists">
+          <% if @posits.present? %>
+          <% @posits.each do |posit| %>
+          <li class="posit">
+            <div class="posit-name">
+              <h3><%= posit.user.nickname %></h3>
+            </div>
+            <div class="posit-text">
+              <%= posit.posit%>
+            </div>
+            <div class="posit-option">
+              <span>
+                <%= image_tag("option.jpeg", :size => "17x17", id:"posit-option")%>
+                <% if user_signed_in?%>
+                <% if posit.user.id == current_user.id%>
+                  <%= link_to "削除する", posit_path(posit.id), method: :delete, class:"posit-delete-btn"%>
+                <% end %>
+                <% end %>
+              </span>
+              <span>
+                <%= image_tag("good_mark.jpeg", :size => "17x17", id:"good-mark")%>
+              </span>
+            </div>
+          </li>
+          <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
   </div>
-  <div class="news-view"></div>
-  <div class="blog-view"></div>
+  <div class="contents-view">
+    <div class="news-view"></div>
+    <div class="blog-view"></div>
+  </div>
 </div>
 <%= render "shared/footer"%>

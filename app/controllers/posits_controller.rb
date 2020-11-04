@@ -1,4 +1,6 @@
 class PositsController < ApplicationController
+  before_action :authenticate_user!, only: [:index]
+  
   def index
     @posits = Posit.includes(:user).order('created_at DESC')
   end
@@ -16,6 +18,11 @@ class PositsController < ApplicationController
     end
   end
 
+  def destroy
+    posit = Posit.find(params[:id])
+    posit.destroy
+    redirect_to root_path
+  end
   private
 
   def posit_params

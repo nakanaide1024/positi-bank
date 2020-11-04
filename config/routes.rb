@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   
   root to: "top#index"
 
-  resources :posits, only: [:new, :create, :index]
+  resources :posits, only: [:new, :create, :index, :destroy]
 end
