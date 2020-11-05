@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :posits
+  has_many :blogs
 
   validates :nickname, presence: true, uniqueness: {case_sensitive: true},
                        length: { minimum: 3, maximum: 50}

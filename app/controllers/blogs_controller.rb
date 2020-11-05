@@ -7,7 +7,7 @@ class BlogsController < ApplicationController
   def create
     @blog = Blog.new(blog_params)
     if @blog.save
-      ridirect_to controller: :posits, action: :index
+      redirect_to  controller: :posits, action: :index
     else
       render :new
     end
@@ -16,6 +16,6 @@ class BlogsController < ApplicationController
   private
 
   def blog_params
-    params.require(:blog).permit(:title, :text).merge(user_id: current_user.id)
+    params.require(:blog).permit(:title, :text, :image).merge(user_id: current_user.id)
   end
 end

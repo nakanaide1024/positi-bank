@@ -1,43 +1,71 @@
 <%= render "user_header" %>
 <div class='main'>
   <div class="contents-view">
-      <div class="posit-view">
-        <p>新着投稿</p>
-        <div class="posit-view-box">
-          <ul class="posit-lists">
-            <% if @posits.present? %>
-            <% @posits.each do |posit| %>
-            <li class="posit">
-              <div class="posit-name">
-                <h3><%= posit.user.nickname %></h3>
-              </div>
-              <div class="posit-text">
-                <%= posit.posit%>
-              </div>
-              <div class="posit-option">
-                <span>
-                  <%= image_tag("option.jpeg", :size => "17x17", id:"posit-option")%>
-                  <% if user_signed_in?%>
-                  <% if posit.user.id == current_user.id%>
-                    <%= link_to "削除する", posit_path(posit.id), method: :delete, class:"posit-delete-btn"%>
-                  <% end %>
-                  <% end %>
-                </span>
-                <span>
-                  <%= image_tag("good_mark.jpeg", :size => "17x17", id:"good-mark")%>
-                </span>
-              </div>
-            </li>
-            <% end %>
-            <% end %>
-          </ul>
-        </div>
+    <div class="posit-view">
+      <p>新着投稿</p>
+      <div class="posit-view-box">
+        <ul class="posit-lists">
+          <% if @posits.present? %>
+          <% @posits.each do |posit| %>
+          <li class="posit">
+            <div class="posit-name">
+              <h3><%= posit.user.nickname %></h3>
+            </div>
+            <div class="posit-text">
+              <%= posit.posit%>
+            </div>
+            <div class="posit-option">
+              <span>
+                <%= image_tag("option.jpeg", :size => "17x17", id:"posit-option")%>
+                <% if user_signed_in?%>
+                <% if posit.user.id == current_user.id%>
+                  <%= link_to "削除する", posit_path(posit.id), method: :delete, class:"posit-delete-btn"%>
+                <% end %>
+                <% end %>
+              </span>
+              <span>
+                <%= image_tag("good_mark.jpeg", :size => "17x17", id:"good-mark")%>
+              </span>
+            </div>
+          </li>
+          <% end %>
+          <% end %>
+        </ul>
       </div>
     </div>
   </div>
-  <div class="contents-view">
-    <div class="news-view"></div>
-    <div class="blog-view"></div>
+  <div class="user-contents-view">
+    <div class="user-profile-view">
+      <p><%= current_user.nickname%>さんのプロフィール</p>
+      <div class="user-profile-box"></div>
+    </div>
+    <div class="user-options">
+      <ul class="user-posits-letters">
+        <li><%= link_to "投稿一覧", "#"%></li>
+        <li><%= link_to "ブログ一覧", "#"%></li>
+        <li><%= link_to "貰った感謝状", "#"%></li>
+        <li><%= link_to "送った感謝状", "#"%></li>
+      </ul>
+    </div>
+    <div class="user-blog-view">
+      <p>新着ブログ</p>
+      <div class="blog-view-box">
+        <ul class="blog-lists">
+          <% if @blogs.present? %>
+          <% @blogs.each do |blog| %>
+          <li class="blog">
+            <div class="blog-writer">
+              <h3><%= blog.user.nickname %></h3>
+            </div>
+            <div class="blog-title-name">
+              <%= blog.title%>
+            </div>
+          </li>
+          <% end %>
+          <% end %>
+        </ul> 
+      </div>
+    </div>
   </div>
 </div>
 <%= render "shared/footer"%>
