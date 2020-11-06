@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: "top#index"
   get "/blogs.:id", to: "blogs#index"
 
-  resources :posits, only: [:new, :create, :index, :destroy]
-  resources :blogs, only: [:new, :create,]
+  resources :posits, only: [:new, :create, :index, :destroy, :show]
+  resources :blogs, only: [:new, :create, :destroy, :edit, :update, :show]
 
 end

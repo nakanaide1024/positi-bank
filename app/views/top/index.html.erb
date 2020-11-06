@@ -51,20 +51,20 @@
     <div class="blog-view">
       <p>新着ブログ</p>
       <div class="blog-view-box">
-      <ul class="blog-lists">
-        <% if @blogs.present? %>
-        <% @blogs.each do |blog| %>
-        <li class="blog">
-          <div class="blog-writer">
-            <h3><%= blog.user.nickname %></h3>
-          </div>
-          <div class="blog-title-name">
-            <%= link_to blog.title, blogs_path(blog.id) %>
-          </div>
-        </li>
-        <% end %>
-        <% end %>
-      </ul> 
+        <ul class="blog-lists">
+          <% if @blogs.present? %>
+          <% @blogs.each do |blog| %>
+          <li class="blog">
+            <div class="blog-writer">
+              <h3><%= blog.user.nickname %></h3>
+            </div>
+            <div class="blog-title-name">
+              <%= link_to blog.title, blogs_path(blog.id) %>
+            </div>
+          </li>
+          <% end %>
+          <% end %>
+        </ul> 
       </div>
     </div>
   </div>

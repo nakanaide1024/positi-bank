@@ -1,0 +1,24 @@
+<%= render "shared/create_header" %>
+<div class='main'>
+  <div class="all-blogs-view">
+    <p><%= current_user.nickname%>さんのブログ一覧</p>
+    <div class="all-blogs-view-box">
+      <ul class="all-blogs-lists">
+        <% if @blogs.present? %>
+        <% @blogs.each do |blog| %>
+        <li class="all-blog">
+          <div class="all-blog-writer">
+            <h3><%= blog.user.nickname %></h3>
+          </div>
+          <div class="all-blog-title-name">
+            <%= link_to blog.title, blogs_path(blog.id) %>
+          </div>
+        </li>
+        <% end %>
+        <% end %>
+      </ul> 
+    </div>
+    <%= link_to "戻る", posits_path%>
+  </div>
+</div>  
+<%= render "shared/footer"%>
