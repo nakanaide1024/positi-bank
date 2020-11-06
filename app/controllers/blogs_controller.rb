@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:index, :destroy, :edit, :show, :update]
+  before_action :set_blog, only: [:index, :destroy, :edit, :update]
 
   def index
   end
@@ -15,6 +15,10 @@ class BlogsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @blogs = current_user.blogs
   end
 
   def edit

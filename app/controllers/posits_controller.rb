@@ -6,6 +6,10 @@ class PositsController < ApplicationController
     @blogs = Blog.includes(:user).order('created_at DESC')
   end
 
+  def show
+    @posits = current_user.posits
+  end
+
   def new
     @posit = Posit.new
   end
@@ -22,7 +26,7 @@ class PositsController < ApplicationController
   def destroy
     posit = Posit.find(params[:id])
     posit.destroy
-    redirect_to root_path
+    redirect_to posits_path
   end
   private
 

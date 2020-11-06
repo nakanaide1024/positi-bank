@@ -19,7 +19,7 @@
                 <%= image_tag("option.jpeg", :size => "17x17", id:"posit-option")%>
                 <% if user_signed_in?%>
                 <% if posit.user.id == current_user.id%>
-                  <%= link_to "削除する", posit_path(posit.id), method: :delete, class:"posit-delete-btn"%>
+                  <%= link_to "削除する", posit_path(posit.id), method: :delete, data: {confirm: "削除しますか？"}, class:"posit-delete-btn"%>
                 <% end %>
                 <% end %>
               </span>
@@ -41,8 +41,8 @@
     </div>
     <div class="user-options">
       <ul class="user-posits-letters">
-        <li><%= link_to "投稿一覧", "#"%></li>
-        <li><%= link_to "ブログ一覧", "#"%></li>
+        <li><%= link_to "投稿一覧", posit_path(current_user.id)%></li>
+        <li><%= link_to "ブログ一覧", blog_path(current_user.id)%></li>
         <li><%= link_to "貰った感謝状", "#"%></li>
         <li><%= link_to "送った感謝状", "#"%></li>
       </ul>
