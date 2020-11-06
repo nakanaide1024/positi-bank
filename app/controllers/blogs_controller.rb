@@ -1,5 +1,9 @@
 class BlogsController < ApplicationController
   
+  def index
+    @blog = Blog.find(params[:id])
+  end
+
   def new
     @blog = Blog.new
   end

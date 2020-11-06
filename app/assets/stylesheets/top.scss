@@ -157,7 +157,8 @@ h3{
   width: 100%;
 }
 
-.blog-title-name{
+.blog-title-name a{
+  display: block;
   width: 100%;
   text-align: center;
   color: blue;

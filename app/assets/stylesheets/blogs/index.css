@@ -1,0 +1,86 @@
+.users-blogs-one{
+  width: 60%;
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.blogs-ones-box{
+  display: block;
+  width: 100%;
+  height: 80%;
+  background-color: white;
+  border: 6px ridge gray;
+  overflow: scroll;
+}
+
+.users-blogs-one p{
+  display: block;
+  text-align: center;
+  width: 100%;
+  background-color: gold;
+  color: green;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 16px 8px;
+  margin: 30px 0px 20px;
+}
+
+.blogs-ones-title{
+  width: 100%;
+  text-align: center;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.39);
+}
+
+.blogs-ones-title h3{
+  font-family: inherit;
+  font-size: 50px;
+  color: goldenrod;
+}
+
+.blogs-ones-image{
+  width: 100%;
+  padding-top: 20px;
+}
+
+.blogs-image-size{
+  display: block;
+  margin: 0 auto;
+}
+
+.blogs-ones-text{
+  display: block;
+  margin: 0 auto;
+  width: 70%;
+  padding-top: 20px;
+}
+
+.blogs-ones-option{
+  width: 100%;
+  height: 120px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.blogs-ones-options-box{
+  border-top: 2px solid rgba(128, 128, 128, 0.39);
+  height: 30px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.blogs-ones-options-box a{
+  display: block;
+  text-align: center;
+  width: 70%;
+  background-color: gold;
+  color: green;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 16px 8px;
+  margin: 50px 20px 0px;
+}

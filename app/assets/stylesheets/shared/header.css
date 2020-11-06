@@ -73,6 +73,22 @@ a {
   color: gold;
 }
 
+.user-only-name{
+  width: 25%;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-only-name h2{
+  display: block;
+  text-align: center;
+  background-color: rgb(255, 217, 0);
+  color: green;
+  border-radius: 0.5em;
+  padding: 10px;
+}
 
 .sign-block{
   width: 90%;
