@@ -1,3 +1,72 @@
 <%= render "shared/header" %>
-<div class='main'></div>
+<div class='main'>
+  <div class="contents-view">
+    <div class="posit-view">
+      <p>新着投稿</p>
+      <div class="posit-view-box">
+        <ul class="posit-lists">
+          <% if @posits.present? %>
+          <% @posits.each do |posit| %>
+          <li class="posit">
+            <div class="posit-name">
+              <h3><%= posit.user.nickname %></h3>
+            </div>
+            <div class="posit-text">
+              <%= posit.posit%>
+            </div>
+            <div class="posit-option">
+              <span>
+                <%= image_tag("option.jpeg", :size => "17x17", id:"posit-option")%>
+                <% if user_signed_in?%>
+                <% if posit.user.id == current_user.id%>
+                  <%= link_to "削除する", posit_path(posit.id), method: :delete, data: {confirm: "削除しますか？"}, class:"posit-delete-btn"%>
+                <% end %>
+                <% end %>
+              </span>
+              <span>
+                <%= image_tag("good_mark.jpeg", :size => "17x17", id:"good-mark")%>
+              </span>
+            </div>
+          </li>
+          <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="contents-view">
+    <div class="news-view">
+      <p>新着ニュース＆動画</p>
+      <div class="news-view-box">
+        <ul class="news-lists">
+          <li>・子猫を地元の消防団が救出、ところが、、</li>
+          <li>・いつまでも見ちゃう、最強の子猫</li>
+          <li>・つい顔がほころぶ、赤ちゃん×子猫、激カワ動画</li>
+          <li>・子猫を地元の消防団が救出、ところが、、</li>
+          <li>・飯テロすぎて逆に幸せ！ 大食いファイターの爆食いが凄すぎた</li>
+          <li>・５歳でひとりぼっちになってしまった少年、救ってくれたのは教会の牧師だった</li>
+        </ul>
+      </div>
+    </div>
+    <div class="blog-view">
+      <p>新着ブログ</p>
+      <div class="blog-view-box">
+      <ul class="blog-lists">
+        <% if @blogs.present? %>
+        <% @blogs.each do |blog| %>
+        <li class="blog">
+          <div class="blog-writer">
+            <h3><%= blog.user.nickname %></h3>
+          </div>
+          <div class="blog-title-name">
+            <%= link_to blog.title, blogs_path(blog.id) %>
+          </div>
+        </li>
+        <% end %>
+        <% end %>
+      </ul> 
+      </div>
+    </div>
+  </div>
+</div>
 <%= render "shared/footer"%>

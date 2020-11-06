@@ -1,0 +1,2 @@
+module PositsHelper
+end

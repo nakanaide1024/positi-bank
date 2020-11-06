@@ -1,0 +1,15 @@
+<%= render "shared/create_header" %>
+<div class='main'>
+  <div class='posit-form'>
+    <%= form_with model: @posit, class:"posit-box", local: true do |f| %>
+      <%= render "shared/error_messages", model: @posit %>
+    <%= f.text_area :posit, class:"posit-default", id:"posit", placeholder:"良かったことや、感動したことなどを呟こう！", maxlength:"140" %>
+    <div class="form-box">
+       <div class="form-text-wrap">
+         <%= f.submit "投稿", class:"posit-submit" %>
+       </div>
+     </div>
+    <% end %>
+  </div>
+</div>
+<%= render "shared/footer"%>

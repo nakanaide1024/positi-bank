@@ -9,18 +9,11 @@
         <h1>PoSiTi-BaNK</h1>
       <% end %>
     </div>
-    <div class="user-name"> 
-      <% if user_signed_in?%>
-        <%= link_to posits_path do%>
-          <h2>マイページへ</h2>
-        <% end %>
-      <% else %>
-        <h2>ゲストさん、ようこそ</h2>
-      <% end %>
+    <div class="user-only-name"> 
+      <h2><%= current_user.nickname %>さんのマイページ</h2>
     </div>
   </div>
   <div class="sign-block">
-    <% if user_signed_in? %>
     <div class="en-counter">
       <p>123,456,789縁</p>
     </div>
@@ -33,15 +26,5 @@
     <div class="new-blog">
       <%= link_to "記事を書く", new_blog_path %>
     </div>
-    <% else %>
-    <div class="en-counter">
-    </div>
-    <div class="login">
-      <%= link_to "ログイン", new_user_session_path %>
-    </div>
-    <div class="new-registration">
-      <%= link_to "新規登録", new_user_registration_path %>
-    </div>
-    <% end %>
   </div>
 </div>
