@@ -16,11 +16,11 @@
       </div>
       <div class="blogs-ones-option">
         <div class="blogs-ones-options-box">
+          <%= link_to "ステキ！", "#", class:"blogs-ones-good-btn" %>
           <% if @blog.user.id == current_user.id %>
-          <%= link_to "編集する", "#" %>
-          <%= link_to "削除する", "#" %>
+          <%= link_to "編集する", edit_blog_path(@blog.id), class:"blogs-ones-edit-btn" %>
+          <%= link_to "削除する", blog_path(@blog.id), method: :delete, data: {confirm: "削除しますか？"}, class:"blogs-ones-delete-btn" %>
           <% end %>
-          <%= link_to "ステキ！", "#" %>
         </div>
       </div>
     </div>

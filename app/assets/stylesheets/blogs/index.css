@@ -55,6 +55,7 @@
   margin: 0 auto;
   width: 70%;
   padding-top: 20px;
+  margin-bottom: 40px;
 }
 
 .blogs-ones-option{
@@ -84,3 +85,9 @@
   padding: 10px 16px 8px;
   margin: 50px 20px 0px;
 }
+
+.blogs-ones-options-box a:nth-child(n+2):hover{
+  background-color: green;
+  color: gold;
+}
+
