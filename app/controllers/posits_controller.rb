@@ -28,6 +28,7 @@ class PositsController < ApplicationController
     posit.destroy
     redirect_to posits_path
   end
+
   private
 
   def posit_params

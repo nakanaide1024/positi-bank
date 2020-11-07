@@ -13,14 +13,14 @@ RSpec.describe Posit, type: :model do
     end
     context 'posit保存がうまくいかない時' do
       it 'positが空では保存できない' do
-        @posit.posit = ""
+        @posit.posit = ''
         @posit.valid?
         expect(@posit.errors.full_messages).to include("Posit can't be blank")
       end
-      it "ユーザーが紐付いていないとpositは保存できない" do
+      it 'ユーザーが紐付いていないとpositは保存できない' do
         @posit.user = nil
         @posit.valid?
-        expect(@posit.errors.full_messages).to include("User must exist")
+        expect(@posit.errors.full_messages).to include('User must exist')
       end
     end
   end

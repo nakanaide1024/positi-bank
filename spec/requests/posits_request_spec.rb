@@ -1,5 +1,4 @@
 require 'rails_helper'
 
-RSpec.describe "Posits", type: :request do
-
+RSpec.describe 'Posits', type: :request do
 end

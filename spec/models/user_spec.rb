@@ -25,14 +25,14 @@ RSpec.describe User, type: :model do
         expect(anuther_user.errors.full_messages).to include('Nickname has already been taken')
       end
       it 'nicknameが3文字未満では登録できない' do
-        @user.nickname = "tt"
+        @user.nickname = 'tt'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Nickname is too short (minimum is 3 characters)")
+        expect(@user.errors.full_messages).to include('Nickname is too short (minimum is 3 characters)')
       end
       it 'nicknameが51文字以上では登録できない' do
-        @user.nickname = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+        @user.nickname = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Nickname is too long (maximum is 50 characters)")
+        expect(@user.errors.full_messages).to include('Nickname is too long (maximum is 50 characters)')
       end
       it 'emailが空では登録できない' do
         @user.email = nil
