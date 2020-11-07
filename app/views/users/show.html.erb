@@ -39,12 +39,13 @@
       <p><%= @user.nickname%>さんのプロフィール</p>
       <div class="user-profile-box"></div>
     </div>
-    <div class="user-options">
+    <div class="user-shows-options">
       <ul class="user-posits-letters">
+        <li><%= link_to "マイページ", posits_path %></li>
         <li><%= link_to "感謝状を送る", "#"%></li>
       </ul>
     </div>
-    <div class="user-blog-view">
+    <div class="user-shows-blog-view">
       <p><%= @user.nickname%>さんのブログ一覧</p>
       <div class="blog-view-box">
         <ul class="blog-lists">
