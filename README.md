@@ -21,7 +21,6 @@
 
 | column                | Type       | Options                                       |
 | --------------------- | ---------- | --------------------------------------------- |
-| address               | string     | null: false                                   |
 | thanks                | text       | null: false                                   |
 | user                  | references | null: false, foreign_key: true                |
 
@@ -57,7 +56,7 @@ belongs_to :Address
 
 | column       | Type       | Options                        |
 | ------------ | ---------- | ------------------------------ |
-| blog_text    | text       | null: false                    |
+| text         | text       | null: false                    |
 | title        | string     | null: false                    |
 | user         | references | null: false, foreign_key: true |
 
