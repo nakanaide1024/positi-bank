@@ -10,7 +10,11 @@
       <% end %>
     </div>
     <div class="user-only-name"> 
+      <% if @user.present? %>
+      <h2><%= @user.nickname %>さんのマイページ</h2>
+      <% else %>
       <h2><%= current_user.nickname %>さんのマイページ</h2>
+      <% end %>
     </div>
   </div>
   <div class="sign-block">
