@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :blogs
 
   validates :nickname, presence: true, uniqueness: { case_sensitive: true },
-                       length: { minimum: 3, maximum: 50 }
+                       length: { minimum: 3, maximum: 10 }
   validates :password, format: { with: /\A[a-z0-9]+\z/i },
                        confirmation: true
 end
