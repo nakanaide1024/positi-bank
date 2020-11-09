@@ -12,7 +12,7 @@
             <h3><%= letter.created_at.strftime('%Y/%m/%d') %></h3>
           </div>
           <div class="all-blog-title-name">
-            <%= link_to "#{letter.address.user.nickname}さんへ" %>
+            <%= link_to "#{letter.address.user.nickname}さんへ", letter_path(letter.id)%>
           </div>
         </li>
         <% end %>
