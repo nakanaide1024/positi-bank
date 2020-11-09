@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   resources :users, only: [:show] do
     resources :addresses, only: [:new, :create]
   end
-  resources :letters, only: [:index, :show]
+  resources :letters, only: [:index, :show, :edit, :destroy, :update]
 
 end

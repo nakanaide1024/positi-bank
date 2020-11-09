@@ -1,0 +1,15 @@
+<%= render "shared/create_header" %>
+<div class='main'>
+  <div class='letter-form'>
+    <%= form_with model: @letter, class:"letter-box", local: true do |f| %>
+      <%= render "shared/error_messages", model: @letter %>
+    <%= f.text_area :thanks, class:"letter-text", placeholder:"ステキな記事や投稿の乾燥やお礼の気持ちを送ろう！" %>
+    <div class="form-box">
+       <div class="form-text-wrap">
+         <%= f.submit "更新する", class:"blog-submit" %>
+       </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+<%= render "shared/footer"%>
