@@ -68,6 +68,15 @@ a {
   padding: 10px;
 }
 
+.user-name h3 {
+  display: block;
+  text-align: center;
+  background-color: rgb(255, 217, 0);
+  color: green;
+  border-radius: 0.5em;
+  padding: 10px;
+}
+
 .user-name h2:hover{
   background-color: green;
   color: gold;

@@ -41,8 +41,10 @@
     </div>
     <div class="user-shows-options">
       <ul class="user-posits-letters">
+        <% if user_signed_in?%>
         <li><%= link_to "マイページ", posits_path %></li>
         <li><%= link_to "感謝状を送る", new_user_address_path(@user.id)%></li>
+        <% end %>
       </ul>
     </div>
     <div class="user-shows-blog-view">
