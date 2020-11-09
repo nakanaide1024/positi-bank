@@ -42,7 +42,7 @@
     <div class="user-shows-options">
       <ul class="user-posits-letters">
         <li><%= link_to "マイページ", posits_path %></li>
-        <li><%= link_to "感謝状を送る", "#"%></li>
+        <li><%= link_to "感謝状を送る", new_user_address_path(@user.id)%></li>
       </ul>
     </div>
     <div class="user-shows-blog-view">

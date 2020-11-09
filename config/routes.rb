@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   resources :posits, only: [:new, :create, :index, :destroy, :show]
   resources :blogs, only: [:new, :create, :destroy, :edit, :update, :show]
-  resources :users, only: [:show]
+  resources :users, only: [:show] do
+    resources :addresses, only: [:new, :create]
+  end
 
 end
