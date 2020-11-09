@@ -11,8 +11,10 @@
       </div>
       <div class="blogs-ones-option">
         <div class="blogs-ones-options-box">
+          <% unless @letters.address.user_id == current_user.id %>
           <%= link_to "編集する", edit_letter_path(@letters.id), class:"blogs-ones-edit-btn" %>
-          <%= link_to "削除する", letter_path(@letters.id), method: :delete, class:"blogs-ones-delete-btn" %>
+          <%= link_to "削除する", letter_path(@letters.id), method: :delete, data: {confirm: "削除しますか？"}, class:"blogs-ones-delete-btn" %>
+          <% end %>
         </div>
       </div>
     </div>
