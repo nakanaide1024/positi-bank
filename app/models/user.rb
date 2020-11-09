@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :posits
   has_many :blogs
+  has_many :addresses
+  has_many :letters
 
   validates :nickname, presence: true, uniqueness: { case_sensitive: true },
                        length: { minimum: 3, maximum: 10 }

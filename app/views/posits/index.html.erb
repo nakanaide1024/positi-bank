@@ -9,7 +9,7 @@
           <% @posits.each do |posit| %>
           <li class="posit">
             <div class="posit-name">
-              <h3><%= posit.user.nickname %></h3>
+              <h3><%= link_to posit.user.nickname, user_path(posit.user.id) %></h3>
             </div>
             <div class="posit-text">
               <%= posit.posit%>
@@ -43,8 +43,8 @@
       <ul class="user-posits-letters">
         <li><%= link_to "投稿一覧", posit_path(current_user.id)%></li>
         <li><%= link_to "ブログ一覧", blog_path(current_user.id)%></li>
-        <li><%= link_to "貰った感謝状", "#"%></li>
-        <li><%= link_to "送った感謝状", "#"%></li>
+        <li><%= link_to "貰った感謝状", "/taken" %></li>
+        <li><%= link_to "送った感謝状", letters_path%></li>
       </ul>
     </div>
     <div class="user-blog-view">
@@ -55,7 +55,7 @@
           <% @blogs.each do |blog| %>
           <li class="blog">
             <div class="blog-writer">
-              <h3><%= blog.user.nickname %></h3>
+              <h3><%= link_to blog.user.nickname, user_path(blog.user.id) %></h3>
             </div>
             <div class="blog-title-name">
               <%= link_to blog.title, blogs_path(blog.id)%>

@@ -1,0 +1,26 @@
+<%= render "shared/create_header" %>
+<div class='main'>
+  <div class="all-blogs-view">
+    <p><%= current_user.nickname%>さんが貰った感謝状</p>
+    <div class="all-blogs-view-box">
+      <ul class="all-blogs-lists">
+        <% if @letters.present? %>
+        <% @letters.each do |letter| %>
+        <% if letter.address.user_id == current_user.id %>
+        <li class="all-blog">
+          <div class="all-blog-writer">
+            <h3><%= letter.created_at.strftime('%Y/%m/%d') %></h3>
+          </div>
+          <div class="all-blog-title-name">
+            <%= link_to "#{letter.address.user.nickname}さんへ", letter_path(letter.id)%>
+          </div>
+        </li>
+        <% end %>
+        <% end %>
+        <% end %>
+      </ul> 
+    </div>
+    <%= link_to "戻る", posits_path%>
+  </div>
+</div>  
+<%= render "shared/footer"%>

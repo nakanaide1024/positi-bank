@@ -1,8 +1,8 @@
-<%= render "shared/header" %>
+<%= render "posits/user_header", locals: {user: @user} %>
 <div class='main'>
   <div class="contents-view">
     <div class="posit-view">
-      <p>新着投稿</p>
+      <p><%= @user.nickname%>さんの投稿一覧</p>
       <div class="posit-view-box">
         <ul class="posit-lists">
           <% if @posits.present? %>
@@ -34,22 +34,19 @@
       </div>
     </div>
   </div>
-  <div class="contents-view">
-    <div class="news-view">
-      <p>新着ニュース＆動画</p>
-      <div class="news-view-box">
-        <ul class="news-lists">
-          <li>・子猫を地元の消防団が救出、ところが、、</li>
-          <li>・いつまでも見ちゃう、最強の子猫</li>
-          <li>・つい顔がほころぶ、赤ちゃん×子猫、激カワ動画</li>
-          <li>・子猫を地元の消防団が救出、ところが、、</li>
-          <li>・飯テロすぎて逆に幸せ！ 大食いファイターの爆食いが凄すぎた</li>
-          <li>・５歳でひとりぼっちになってしまった少年、救ってくれたのは教会の牧師だった</li>
-        </ul>
-      </div>
+  <div class="user-contents-view">
+    <div class="user-profile-view">
+      <p><%= @user.nickname%>さんのプロフィール</p>
+      <div class="user-profile-box"></div>
     </div>
-    <div class="blog-view">
-      <p>新着ブログ</p>
+    <div class="user-shows-options">
+      <ul class="user-posits-letters">
+        <li><%= link_to "マイページ", posits_path %></li>
+        <li><%= link_to "感謝状を送る", new_user_address_path(@user.id)%></li>
+      </ul>
+    </div>
+    <div class="user-shows-blog-view">
+      <p><%= @user.nickname%>さんのブログ一覧</p>
       <div class="blog-view-box">
         <ul class="blog-lists">
           <% if @blogs.present? %>
@@ -59,7 +56,7 @@
               <h3><%= link_to blog.user.nickname, user_path(blog.user.id) %></h3>
             </div>
             <div class="blog-title-name">
-              <%= link_to blog.title, blogs_path(blog.id) %>
+              <%= link_to blog.title, blogs_path(blog.id)%>
             </div>
           </li>
           <% end %>
