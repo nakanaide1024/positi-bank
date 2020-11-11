@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   get "/taken", to: "top#show"
   get "/blogs.:id", to: "blogs#index"
 
-  resources :posits, only: [:new, :create, :index, :destroy, :show]
+  resources :posits, only: [:new, :create, :index, :destroy, :show] do
+    get 'add' => 'likes#checked'
+    post 'add' => 'likes#create'
+    delete '/add' => 'likes#destroy'
+  end
+  
   resources :blogs, only: [:new, :create, :destroy, :edit, :update, :show]
   resources :users, only: [:show] do
     resources :addresses, only: [:new, :create]

@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 2020_11_10_055226) do
 
   create_table "posits", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "posit", default: "", null: false
+    t.boolean "checked"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

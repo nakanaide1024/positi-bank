@@ -60,17 +60,20 @@
   margin-left: 55%;
 }
 
-.posit-option span:nth-child(2){
-  margin-left: 90px ;
+.posit-option span{
+  display: block;
+  text-align: center;
+  width: 60%;
+  background-color: gold;
+  color: green;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 8px 4px;
+  margin-bottom: 5px;
 }
 
-.posit-delete-btn{
-  display: none;
-}
-
-.posit-option span:first-child:hover .posit-delete-btn{
-  display: inline-block;
-  height: 100%;
+.posit-option a{
+  color: green;
 }
 
 .news-view{
@@ -163,4 +166,9 @@
   text-align: center;
   color: blue;
   border-bottom: 2px solid rgba(128, 128, 128, 0.39);
+}
+
+.likes[data-check="true"] {
+  background-color: green;
+  color: gold;
 }
