@@ -1,4 +1,4 @@
-<%= render "shared/header" %>
+<%= render "shared/header", locals: { like: @like} %>
 <div class='main'>
   <div class="contents-view">
     <div class="posit-view">
@@ -15,17 +15,17 @@
               <%= posit.posit%>
             </div>
             <div class="posit-option">
-              <span>
-                <%= image_tag("option.jpeg", :size => "17x17", id:"posit-option")%>
-                <% if user_signed_in?%>
-                <% if posit.user.id == current_user.id%>
-                  <%= link_to "削除する", posit_path(posit.id), method: :delete, data: {confirm: "削除しますか？"}, class:"posit-delete-btn"%>
-                <% end %>
-                <% end %>
+              <% if user_signed_in?%>
+              <% if posit.user.id == current_user.id%>
+              <div class="posit-delete">
+                <span><%= link_to "削除する", posit_path(posit.id), method: :delete, data: {confirm: "削除しますか？"}, class:"posit-delete-btn"%></span>
+              </div>
+              <% else %>
+              <span class="likes" data-id=<%= posit.id %> data-check=<%= posit.checked %>>
+                ステキ！
               </span>
-              <span>
-                <%= image_tag("good_mark.jpeg", :size => "17x17", id:"good-mark")%>
-              </span>
+              <% end %>
+              <% end %>
             </div>
           </li>
           <% end %>

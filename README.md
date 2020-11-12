@@ -27,7 +27,7 @@
 ### Association
 
 belongs_to :User
-belongs_to :Address
+has_one :Address
 
 ## Addresses
 
@@ -61,5 +61,16 @@ belongs_to :Address
 | user         | references | null: false, foreign_key: true |
 
 ### Association
+
+- belongs_to :User
+
+## Count
+
+| column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| good    | integer    | null: false                    |
+| user    | references | null: false, foreign_key: true |
+
+###
 
 - belongs_to :User

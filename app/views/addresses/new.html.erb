@@ -3,7 +3,7 @@
   <div class='letter-form'>
     <%= form_with model: @letter_address, url: user_addresses_path , method: :post, class:"letter-box", local: true do |f| %>
       <%= render "shared/error_messages", model: @letter_address %>
-    <%= f.text_area :thanks, class:"letter-text", placeholder:"ステキな記事や投稿の乾燥やお礼の気持ちを送ろう！" %>
+    <%= f.text_area :thanks, class:"letter-text", placeholder:"ステキな記事や投稿へのお礼の気持ちを送ろう！" %>
     <div class="form-box">
        <div class="form-text-wrap">
          <%= f.submit "感謝状を送る", class:"blog-submit" %>
