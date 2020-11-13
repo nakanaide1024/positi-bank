@@ -24,7 +24,9 @@ function posit_like () {
           let token = document.getElementsByName("csrf-token")[0].content; 
           XHR.setRequestHeader('X-CSRF-Token', token);
           XHR.send();
-          return;
+          XHR.onload = () => {
+            location.reload();
+          }
         } else if (item.checked === false) {
           like.removeAttribute("data-check");
           XHR.open("DELETE", `/posits/${positId}/add`, true);
@@ -32,9 +34,10 @@ function posit_like () {
           let token = document.getElementsByName("csrf-token")[0].content; 
           XHR.setRequestHeader('X-CSRF-Token', token);
           XHR.send();
-          return;
+          XHR.onload = () => {
+            location.reload();
+          }
         }
-        window.location.reload();
       };
     });
   });

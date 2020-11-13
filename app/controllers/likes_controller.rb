@@ -5,6 +5,8 @@ class LikesController < ApplicationController
       user = current_user
       posit = Posit.find(params[:posit_id])
       like = Like.create(user_id: user.id, posit_id: posit.id)
+      item = Posit.find(params[:posit_id])
+      render json:{ posit: item }
   end
   def destroy
       user = current_user

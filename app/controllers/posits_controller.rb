@@ -17,7 +17,7 @@ class PositsController < ApplicationController
   def create
     @posit = Posit.new(posit_params)
     if @posit.save
-      redirect_to action: :index
+      redirect_to posits_path
     else
       render :new
     end
