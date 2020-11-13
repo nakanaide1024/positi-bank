@@ -24,5 +24,18 @@ class LikesController < ApplicationController
     item = Posit.find(params[:posit_id])
     render json:{ posit: item }
   end
-
+  def confirmation
+    likes = Like.includes([:user, :posit])
+    posit = Posit.find(params[:posit_id])
+    @like = likes.where(posit_id: posit.id)
+    if @like.where(user_id: current_user.id).blank?
+      posit.update(checked: false)
+      item = Posit.find(params[:posit_id])
+      render json:{ posit: item }
+    else
+      posit.update(checked: true)
+      item = Posit.find(params[:posit_id])
+      render json:{ posit: item }
+    end
+  end
 end

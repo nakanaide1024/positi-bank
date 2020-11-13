@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :posits, only: [:new, :create, :index, :destroy, :show] do
     get 'add' => 'likes#checked'
+    get 'check' => 'likes#confirmation'
     post 'add' => 'likes#create'
     delete '/add' => 'likes#destroy'
   end
