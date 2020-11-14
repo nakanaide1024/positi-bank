@@ -4,6 +4,10 @@ class PositsController < ApplicationController
   def index
     @posits = Posit.includes(:user).order('created_at DESC')
     @blogs = Blog.includes(:user).order('created_at DESC')
+    likes = Like.includes([:user, :posit])
+    if user_signed_in?
+    @like = likes.where(user_id: current_user.id).count
+    end
   end
 
   def show
@@ -17,7 +21,7 @@ class PositsController < ApplicationController
   def create
     @posit = Posit.new(posit_params)
     if @posit.save
-      redirect_to action: :index
+      redirect_to posits_path
     else
       render :new
     end

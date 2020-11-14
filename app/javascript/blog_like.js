@@ -1,14 +1,14 @@
-function posit_like () {
-  const likes = document.querySelectorAll(".likes");
+function blog_like () {
+  const likes = document.querySelectorAll(".blogs_likes");
   likes.forEach(function (like) {
-    if (like.getAttribute("data-load") != null) {
+    if (like.getAttribute("blog-load") != null) {
       return null;
     }
-    like.setAttribute("data-load", "true");
+    like.setAttribute("blog-load", "true");
     like.addEventListener("click",() => {
-      const positId = like.getAttribute("data-id");
+      const blogId = like.getAttribute("data-id");
       const XHR = new XMLHttpRequest();
-      XHR.open("GET", `/posits/${positId}/add`, true);
+      XHR.open("GET", `/blogs/${blogId}/add`, true);
       XHR.responseType = "json";
       XHR.send();
       XHR.onload = () => {
@@ -16,10 +16,10 @@ function posit_like () {
           alert(`Error ${XHR.status}: ${XHR.statusText}`);
           return null;          
         }
-        const item = XHR.response.posit;
+        const item = XHR.response.blog;
         if (item.checked === true) {
           like.setAttribute("data-check", "true");
-          XHR.open("POST", `/posits/${positId}/add`, true);
+          XHR.open("POST", `/blogs/${blogId}/add`, true);
           XHR.responseType = "json";
           let token = document.getElementsByName("csrf-token")[0].content; 
           XHR.setRequestHeader('X-CSRF-Token', token);
@@ -29,17 +29,17 @@ function posit_like () {
           }
         } else if (item.checked === false) {
           like.removeAttribute("data-check");
-          XHR.open("DELETE", `/posits/${positId}/add`, true);
+          XHR.open("DELETE", `/blogs/${blogId}/add`, true);
           XHR.responseType = "json";
           let token = document.getElementsByName("csrf-token")[0].content; 
           XHR.setRequestHeader('X-CSRF-Token', token);
           XHR.send();
           XHR.onload = () => {
             location.reload();
-          }
-        }
+          };
+        };
       };
     });
   });
 }
-setInterval(posit_like, 1000);
+setInterval(blog_like, 1000);

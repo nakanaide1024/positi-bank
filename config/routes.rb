@@ -7,11 +7,18 @@ Rails.application.routes.draw do
 
   resources :posits, only: [:new, :create, :index, :destroy, :show] do
     get 'add' => 'likes#checked'
+    get 'check' => 'likes#confirmation'
     post 'add' => 'likes#create'
     delete '/add' => 'likes#destroy'
   end
   
-  resources :blogs, only: [:new, :create, :destroy, :edit, :update, :show]
+  resources :blogs, only: [:new, :create, :destroy, :edit, :update, :show] do
+    get 'add' => 'blogs_likes#checked'
+    get 'check' => 'blogs_likes#confirmation'
+    post 'add' => 'blogs_likes#create'
+    delete '/add' => 'blogs_likes#destroy'
+  end
+
   resources :users, only: [:show] do
     resources :addresses, only: [:new, :create]
   end

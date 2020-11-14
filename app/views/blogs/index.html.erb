@@ -17,8 +17,11 @@
       <div class="blogs-ones-option">
         <div class="blogs-ones-options-box">
           <% if user_signed_in? %>
-          <%= link_to "ステキ！", "#", class:"blogs-ones-good-btn" %>
-          <% if @blog.user.id == current_user.id %>
+          <% unless @blog.user.id == current_user.id%>
+          <span class="blogs_likes" data-id=<%= @blog.id %> data-check=<%= @blog.checked %>>
+            ステキ！
+          </span>
+          <% else %>
           <%= link_to "編集する", edit_blog_path(@blog.id), class:"blogs-ones-edit-btn" %>
           <%= link_to "削除する", blog_path(@blog.id), method: :delete, data: {confirm: "削除しますか？"}, class:"blogs-ones-delete-btn" %>
           <% end %>
