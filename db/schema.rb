@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_10_055226) do
+ActiveRecord::Schema.define(version: 2020_11_14_085650) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -50,6 +50,15 @@ ActiveRecord::Schema.define(version: 2020_11_10_055226) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_blogs_on_user_id"
+  end
+
+  create_table "blogs_likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "blog_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["blog_id"], name: "index_blogs_likes_on_blog_id"
+    t.index ["user_id"], name: "index_blogs_likes_on_user_id"
   end
 
   create_table "letters", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -95,6 +104,8 @@ ActiveRecord::Schema.define(version: 2020_11_10_055226) do
   add_foreign_key "addresses", "letters"
   add_foreign_key "addresses", "users"
   add_foreign_key "blogs", "users"
+  add_foreign_key "blogs_likes", "blogs"
+  add_foreign_key "blogs_likes", "users"
   add_foreign_key "letters", "users"
   add_foreign_key "likes", "posits"
   add_foreign_key "likes", "users"
