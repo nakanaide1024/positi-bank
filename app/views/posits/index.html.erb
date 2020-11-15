@@ -37,6 +37,17 @@
   <div class="user-contents-view">
     <div class="user-profile-view">
       <p><%= current_user.nickname%>さんのプロフィール</p>
+      <div class="profile-form">  
+        <%= form_with model: @profile, class:"profile-form-box", local: true do |f| %>
+          <%= render "shared/error_messages", model: @profile %>
+        <%= f.text_field :profile, class:"profile", placeholder:"自己紹介を記入しよう！", maxlength:"70" %>
+        <div class="profile-form-submit">
+          <div class="profile-form-text-wrap">
+            <%= f.submit "投稿", class:"profile-submit" %>
+          </div>
+        </div> 
+        <% end %>
+      </div>  
       <div class="user-profile-box">
       蛇使いを目指しています！
       </div>
