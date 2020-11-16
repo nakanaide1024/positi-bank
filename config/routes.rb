@@ -23,5 +23,5 @@ Rails.application.routes.draw do
     resources :addresses, only: [:new, :create]
   end
   resources :letters, only: [:index, :show, :edit, :destroy, :update]
-  resources :profiles, only: [:new, :create]
+  resources :profiles, only: [:new, :create, :update]
 end

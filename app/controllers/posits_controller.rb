@@ -4,7 +4,10 @@ class PositsController < ApplicationController
   def index
     @posits = Posit.includes(:user).order('created_at DESC')
     @blogs = Blog.includes(:user).order('created_at DESC')
-    @profile = Profile.new
+    
+    if (@profile = Profile.find(:current_user.id)).blank?
+      @profile.Profile.new
+    end
 
     if user_signed_in?
       likes = Like.includes([:user, :posit])

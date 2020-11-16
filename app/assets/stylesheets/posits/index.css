@@ -42,12 +42,24 @@
   margin-left: 3px;
 }
 
+.user-profile-view p:nth-child(2):hover{
+  background-color: green;
+  color: gold;
+}
+
 .user-profile-box{
-  display: block;
   width: 100%;
   height: 100%;
   background-color: white;
   border: 6px ridge gray;
+}
+
+.box-data{
+  display: block;
+}
+
+.form-data{
+  display: none;
 }
 
 .user-options{
