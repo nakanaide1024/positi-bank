@@ -16,6 +16,9 @@
 - has_many :Addresses
 - has_many :Posits
 - has_many :Blogs
+- has_many :Likes
+- has_many :Profiles
+- has_many :Blogs_likes
 
 ## Letters
 
@@ -46,11 +49,13 @@ has_one :Address
 | column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
 | posit   | string     | null: false                    |
+| checked | boolean    |                                |
 | user    | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :User
+- has_many :Likes
 
 ## Blogs
 
@@ -58,19 +63,61 @@ has_one :Address
 | ------------ | ---------- | ------------------------------ |
 | text         | text       | null: false                    |
 | title        | string     | null: false                    |
+| checked      | boolean    |                                |
 | user         | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :User
+- has_many :Likes
 
-## Count
+## Profiles
 
 | column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
-| good    | integer    | null: false                    |
+| profile | string     |                                |
 | user    | references | null: false, foreign_key: true |
 
-###
+### Association
 
 - belongs_to :User
+
+## Addresses
+
+| column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| letter  | references | null: false, foreign_key: true |
+| user    | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :User
+- belongs_to :Letter
+
+## Likes
+
+| column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| posit   | references | null: false, foreign_key: true |
+| user    | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :User
+- belongs_to :Posit
+
+## BlogsLikes
+
+| column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| blog    | references | null: false, foreign_key: true |
+| user    | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :User
+- belongs_to :Blog
+
+
+
+
