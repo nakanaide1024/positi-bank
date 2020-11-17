@@ -49,5 +49,5 @@ class BlogsController < ApplicationController
   def move_to_index
     @blog = Blog.find(params[:id])
     redirect_to root_path unless current_user.id == @blog.user.id
-  end 
+  end
 end

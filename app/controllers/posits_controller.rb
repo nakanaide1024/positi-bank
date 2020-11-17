@@ -21,7 +21,7 @@ class PositsController < ApplicationController
       @liked_blog =  blog_likes.where(blog_id: liked_blog_id).count
       @letters = letters.where(user_id: current_user.id).count
       @address = Address.where(user_id: current_user.id).count
-      @result = @blog + @like + ( @letters * 100 ) + ( @address * 1000 ) + @liked_posit + @liked_blog
+      @result = @blog + @like + (@letters * 100) + (@address * 1000) + @liked_posit + @liked_blog
     end
   end
 

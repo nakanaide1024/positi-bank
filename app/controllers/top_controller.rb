@@ -2,7 +2,6 @@ class TopController < ApplicationController
   def index
     @posits = Posit.includes(:user).order('created_at DESC')
     @blogs = Blog.includes(:user).order('created_at DESC')
-    
 
     if user_signed_in?
       likes = Like.includes([:user, :posit])
@@ -18,7 +17,7 @@ class TopController < ApplicationController
       @liked_blog =  blog_likes.where(blog_id: liked_blog_id).count
       @letters = letters.where(user_id: current_user.id).count
       @address = Address.where(user_id: current_user.id).count
-      @result = @blog + @like + ( @letters * 100 ) + ( @address * 1000 ) + @liked_posit + @liked_blog
+      @result = @blog + @like + (@letters * 100) + (@address * 1000) + @liked_posit + @liked_blog
     end
   end
 
