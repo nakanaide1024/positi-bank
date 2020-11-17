@@ -20,7 +20,7 @@
   <div class="sign-block">
     <% if user_signed_in? %>
     <div class="en-counter">
-      <p><%= @like %>縁</p>
+     <p><%= @result %>縁</p>
     </div>
     <div class="logout">
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>

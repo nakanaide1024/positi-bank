@@ -28,7 +28,7 @@ class BlogsController < ApplicationController
 
   def update
     @blog.update(blog_params)
-    redirect_to root_path
+    redirect_to posits_path
   end
 
   def destroy

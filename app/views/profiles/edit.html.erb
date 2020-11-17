@@ -1,0 +1,15 @@
+<%= render "shared/create_header" %>
+<div class='main'>
+  <div class='blog-form'>
+    <%= form_with model: @profile, class:"blog-box", local: true do |f| %>
+      <%= render "shared/error_messages", model: @profile %>
+    <%= f.text_field :profile, class:"blog-title", placeholder:"自己紹介をしよう！", maxlength:"140"%>
+    <div class="form-box">
+       <div class="form-text-wrap">
+         <%= f.submit "プロフィールを更新する", class:"blog-submit" %>
+       </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+<%= render "shared/footer"%>

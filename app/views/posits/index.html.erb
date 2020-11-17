@@ -36,9 +36,31 @@
   </div>
   <div class="user-contents-view">
     <div class="user-profile-view">
-      <p><%= current_user.nickname%>さんのプロフィール</p>
-      <div class="user-profile-box">
-      蛇使いを目指しています！
+      <div class="user-profile-option">
+        <p><%= current_user.nickname%>さんのプロフィール</p>
+        <% if @profile_id.blank? %>
+        <%= link_to "登録する", new_profile_path %>
+        <%end%>
+        <% if @profile.present? %>
+          <% @profile.each do |profile| %>
+            <% if profile.user_id == current_user.id %>
+            <%= link_to "編集する", edit_profile_path(profile.id)%>
+            <% elsif profile.profile.blank? %>
+            <%= link_to "登録する", new_profile_path %>
+            <% end %>
+          <% end %>
+          <% else %>
+          <%= link_to "登録する", new_profile_path %>
+        <% end %>
+      </div>
+      <div class="user-profile-box", id="profile-b", style="display:block" >
+        <% if @profile.present? %>
+        <% @profile.each do |profile| %>
+        <% if profile.user_id == current_user.id %>
+        <%= profile.profile %>
+        <% end %>
+        <% end %>
+        <% end %>
       </div>
     </div>
     <div class="user-options">

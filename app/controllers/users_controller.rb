@@ -4,10 +4,6 @@ class UsersController < ApplicationController
   def show
     @posits = @user.posits
     @blogs = @user.blogs
-    likes = Like.includes([:user, :posit])
-    if user_signed_in?
-    @like = likes.where(user_id: current_user.id).count
-    end
   end
 
   private
