@@ -29,8 +29,8 @@
 
 ### Association
 
-belongs_to :User
-has_one :Address
+- belongs_to :User
+- has_one :Address
 
 ## Addresses
 
