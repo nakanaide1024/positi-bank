@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :addresses
   has_many :letters
   has_many :likes
+  has_many :profiles
   has_many :blogs_likes
   has_many :liked_posit, through: :likes, source: :posit
   has_many :liked_blog, through: :blogs_likes, source: :blog

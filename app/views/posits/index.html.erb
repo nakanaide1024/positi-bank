@@ -38,22 +38,29 @@
     <div class="user-profile-view">
       <div class="user-profile-option">
         <p><%= current_user.nickname%>さんのプロフィール</p>
-        <p id="edit-btn">編集</p>
-      </div>
-      <div class="profile-form", id="profile-f", style="display:none">  
-        <%= form_with model: @profile, class:"profile-form-box", local: true do |f| %>
-          <%= render "shared/error_messages", model: @profile %>
-        <%= f.text_field :profile, class:"profile", placeholder:"自己紹介を記入しよう！", maxlength:"70" %>
-        <div class="profile-form-submit">
-          <div class="profile-form-text-wrap">
-            <%= f.submit "プロフィールを登録する", class:"profile-submit" %>
-            <p id="return-btn">戻る</p>
-          </div>
-        </div> 
+        <% if @profile_id.blank? %>
+        <%= link_to "登録する", new_profile_path %>
+        <%end%>
+        <% if @profile.present? %>
+          <% @profile.each do |profile| %>
+            <% if profile.user_id == current_user.id %>
+            <%= link_to "編集する", edit_profile_path(profile.id)%>
+            <% elsif profile.profile.blank? %>
+            <%= link_to "登録する", new_profile_path %>
+            <% end %>
+          <% end %>
+          <% else %>
+          <%= link_to "登録する", new_profile_path %>
         <% end %>
-      </div>  
+      </div>
       <div class="user-profile-box", id="profile-b", style="display:block" >
-      蛇使いを目指しています！
+        <% if @profile.present? %>
+        <% @profile.each do |profile| %>
+        <% if profile.user_id == current_user.id %>
+        <%= profile.profile %>
+        <% end %>
+        <% end %>
+        <% end %>
       </div>
     </div>
     <div class="user-options">

@@ -11,9 +11,9 @@ require("../posit_like")
 require("../posit_confirmation")
 require("../blog_like")
 require("../blog_confirmation")
-require("../profile_load")
-require("../profile_check")
-require("../profile_checked")
+// require("../profile_load")
+// require("../profile_check")
+// require("../profile_checked")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
