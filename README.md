@@ -118,6 +118,3 @@ has_one :Address
 - belongs_to :User
 - belongs_to :Blog
 
-
-
-
