@@ -4,5 +4,4 @@ class Posit < ApplicationRecord
   has_many :users, through: :likes
 
   validates :posit, presence: true
-
 end

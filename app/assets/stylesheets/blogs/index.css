@@ -28,6 +28,23 @@
   margin: 30px 0px 20px;
 }
 
+.users-blogs-one a:hover{
+  background-color: green;
+  color: gold;
+}
+
+.users-blogs-one a{
+  display: block;
+  text-align: center;
+  width: 100%;
+  background-color: gold;
+  color: green;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 16px 8px;
+  margin: 30px 0px 20px;
+}
+
 .blogs-ones-title{
   width: 100%;
   text-align: center;

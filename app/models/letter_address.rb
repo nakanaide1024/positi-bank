@@ -8,5 +8,4 @@ class LetterAddress
     @address = Letter.create(user_id: send_id, thanks: thanks)
     Address.create(user_id: address_id, letter_id: @address.id)
   end
-    
 end

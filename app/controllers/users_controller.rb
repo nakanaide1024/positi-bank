@@ -10,8 +10,6 @@ class UsersController < ApplicationController
 
   def move_to_index
     @user = User.find(params[:id])
-    if user_signed_in? && @user.id == current_user.id
-      redirect_to posits_path
-    end
+    redirect_to posits_path if user_signed_in? && @user.id == current_user.id
   end
 end

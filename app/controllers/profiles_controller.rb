@@ -22,6 +22,7 @@ class ProfilesController < ApplicationController
   end
 
   private
+
   def profile_params
     params.require(:profile).permit(:profile).merge(user_id: current_user.id)
   end
