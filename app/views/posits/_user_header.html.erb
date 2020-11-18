@@ -11,9 +11,9 @@
     </div>
     <div class="user-only-name"> 
       <% if @user.present? %>
-      <h2><%= @user.nickname %>さんのマイページ</h2>
+      <p><%= @user.nickname %>さんのマイページ<p>
       <% else %>
-      <h2><%= current_user.nickname %>さんのマイページ</h2>
+      <p><%= current_user.nickname %>さんのマイページ<p>
       <% end %>
     </div>
   </div>
