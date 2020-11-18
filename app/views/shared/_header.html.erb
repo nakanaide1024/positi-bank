@@ -2,7 +2,7 @@
   <div class="title-block">
     <div class="menu">
     <%=image_tag("f_f_event_66_s512_f_event_66_0bg.png", :size => "40x40")%>
-    <h2>MENU</h2>
+    <p>MENU<p>
     </div>
     <div class="title">
       <%= link_to root_path do %>
@@ -12,10 +12,10 @@
     <div class="user-name"> 
       <% if user_signed_in?%>
         <%= link_to posits_path do%>
-          <h2>マイページへ</h2>
+          <p>マイページへ</p>
         <% end %>
       <% else %>
-        <h3>ゲストさん、ようこそ</h3>
+        <p>ゲストさん、ようこそ</p>
       <% end %>
     </div>
   </div>

@@ -4,7 +4,7 @@
     <p><%= @blog.user.nickname%>さんのブログ</p>
     <div class="blogs-ones-box">
       <div class="blogs-ones-title">
-        <h3><%= @blog.title %></h3>
+        <%= @blog.title %>
       </div>
       <div class="blogs-ones-image">
         <% if @blog.image.present?%>

@@ -8,7 +8,7 @@
         <% @blogs.each do |blog| %>
         <li class="all-blog">
           <div class="all-blog-writer">
-            <h3><%= blog.user.nickname %></h3>
+            <%= blog.user.nickname %>
           </div>
           <div class="all-blog-title-name">
             <%= link_to blog.title, blogs_path(blog.id) %>
