@@ -2,7 +2,7 @@
   <div class="title-block">
     <div class="menu">
     <%=image_tag("f_f_event_66_s512_f_event_66_0bg.png", :size => "40x40")%>
-    <h2>MENU</h2>
+    <p>MENU</p>
     </div>
     <div class="title">
       <%= link_to root_path do %>
@@ -11,9 +11,9 @@
     </div>
     <div class="user-only-name"> 
       <% if @user.present? %>
-      <p><%= @user.nickname %>さんのマイページ<p>
+      <p><%= @user.nickname %>さんのマイページ</p>
       <% else %>
-      <p><%= current_user.nickname %>さんのマイページ<p>
+      <p><%= current_user.nickname %>さんのマイページ</p>
       <% end %>
     </div>
   </div>

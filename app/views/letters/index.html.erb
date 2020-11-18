@@ -9,7 +9,7 @@
         <% if letter.user_id == current_user.id %>
         <li class="all-blog">
           <div class="all-blog-writer">
-            <h3><%= letter.created_at.strftime('%Y/%m/%d') %></h3>
+            <%= letter.created_at.strftime('%Y/%m/%d') %>
           </div>
           <div class="all-blog-title-name">
             <%= link_to "#{letter.address.user.nickname}さんへ", letter_path(letter.id)%>
