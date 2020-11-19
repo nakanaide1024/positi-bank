@@ -125,6 +125,7 @@ a {
   letter-spacing: 10px;
   font-family: initial;
   text-shadow: 1px 1px 0 green,-1px 1px 0 green,1px -1px 0 green,-1px -1px 0 green;
+  margin: 0px;
 }
 
 .logout .new-posit .new-blog .login .new-registration {
