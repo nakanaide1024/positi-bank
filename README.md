@@ -119,10 +119,11 @@
 - belongs_to :Blog
 
 ■アプリURL<br>
+https://positi-bank.herokuapp.com/
 
 ## テスト用ログイン
-- メールアドレス：recruit@sample.com
-- パスワード：password
+- メールアドレス：test@com
+- パスワード：111aaa
 
 # アプリケーションの概要
 - ポジティブな情報が集まるサイト。
