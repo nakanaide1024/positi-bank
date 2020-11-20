@@ -25,7 +25,6 @@ function blog_like () {
           XHR.setRequestHeader('X-CSRF-Token', token);
           XHR.send();
           XHR.onload = () => {
-            location.reload();
           }
         } else if (item.checked === false) {
           like.removeAttribute("data-check");
@@ -35,7 +34,6 @@ function blog_like () {
           XHR.setRequestHeader('X-CSRF-Token', token);
           XHR.send();
           XHR.onload = () => {
-            location.reload();
           };
         };
       };
