@@ -38,11 +38,19 @@ ul.menu-box {
   visibility: hidden;
   position: absolute;
   top: 10px;
-  left: 78px;
-  width: 150px;
-  background-color: #072a24;
+  left: 100px;
+  width: 170px;
+  background-color: gold;
 }
 
+.menu-box li {
+  padding: 5px;
+  border-bottom: 1px solid green;
+}
+
+.menu-box a{
+  color: green;
+}
 .title {
   width: 50%;
   height: 100%;
