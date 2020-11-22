@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: "top#index"
   get "/taken", to: "top#show"
   get "/blogs.:id", to: "blogs#index"
+  get "/exp", to: "top#exp"
 
   resources :posits, only: [:new, :create, :index, :destroy, :show] do
     get 'add' => 'likes#checked'

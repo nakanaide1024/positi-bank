@@ -1,9 +1,9 @@
-.top-page-footer{
+.top-footer-page{
   width: 100vw;
-  height: 60px;
-  background-color: grey;
+  height: 30px;
+  background-color:greenyellow;
 }
 
-p{
+.top-footer-page p{
   text-align: center;
 }
