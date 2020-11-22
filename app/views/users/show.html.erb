@@ -38,6 +38,11 @@
     <div class="user-profile-view">
       <p><%= @user.nickname%>さんのプロフィール</p>
       <div class="user-profile-box">
+        <% if @profile.present? %>
+        <% @profile.each do |profile|%>
+        <%= profile.profile %>
+        <% end %>
+        <% end %>
       </div>
     </div>
     <div class="user-shows-options">

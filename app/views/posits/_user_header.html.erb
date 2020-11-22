@@ -1,8 +1,13 @@
 <div class="top-page-header">
   <div class="title-block">
     <div class="menu">
-    <%=image_tag("f_f_event_66_s512_f_event_66_0bg.png", :size => "40x40")%>
-    <p>MENU</p>
+    <%=image_tag("f_f_event_66_s512_f_event_66_0bg.png", :size => "40x40", :class =>"menu-block", :id => "menu-bk")%>
+    <p class="menu-title">MENU<p>
+     <ul class="menu-box", id="menu-bx">
+      <li><%= link_to "PoSiTi-BaNKとは", exp_path(anchor: "d-title" ) %></li>
+      <li><%= link_to "PoSiTi-BaNKの機能について", exp_path(anchor: "e-title" ) %></li>
+      <li><%= link_to "PoSiTi-BaNKの使い方", exp_path(anchor: "h-title" )%></li>
+     </ul>
     </div>
     <div class="title">
       <%= link_to root_path do %>

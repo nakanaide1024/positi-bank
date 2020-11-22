@@ -14,7 +14,6 @@ a {
   height: 70px;
   display: flex;
   justify-content: space-between;
-  align-items: auto;
 }
 
 .menu {
@@ -23,7 +22,6 @@ a {
   padding-right: 25px;
   padding-bottom: 10px;
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 
@@ -32,7 +30,27 @@ a {
   text-align: center;
 }
 
+.menu-block {
+  position: relative;
+}
 
+ul.menu-box {
+  visibility: hidden;
+  position: absolute;
+  top: 10px;
+  left: 100px;
+  width: 170px;
+  background-color: gold;
+}
+
+.menu-box li {
+  padding: 5px;
+  border-bottom: 1px solid green;
+}
+
+.menu-box a{
+  color: green;
+}
 .title {
   width: 50%;
   height: 100%;

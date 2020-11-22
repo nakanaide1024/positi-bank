@@ -24,4 +24,7 @@ class TopController < ApplicationController
   def show
     @letters = Letter.includes(:address, :user).order('created_at DESC')
   end
+
+  def exp
+  end
 end

@@ -1,0 +1,38 @@
+.exp-box{
+  display: block;
+  height: 100%;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.difinition{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.exp-main span {
+  display: block;
+  text-align: center;
+  width: 30%;
+  background-color: gold;
+  color: green;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 2px 8px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.exp-main p{
+  width: 70%;
+  text-align: left;
+  display: block;
+  margin: 0 auto;
+  word-wrap: break-all;
+  margin-bottom: 25px;
+}
+
+.exp-function p:nth-child(2n), .how-to p:nth-child(2n){
+ border-bottom: 2px solid gold;
+}
