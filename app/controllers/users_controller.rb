@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   def show
     @posits = @user.posits
     @blogs = @user.blogs
+    @profile = @user.profiles
   end
 
   private
