@@ -18,4 +18,11 @@ class User < ApplicationRecord
                        length: { minimum: 3, maximum: 10 }
   validates :password, format: { with: /\A[a-z0-9]+\z/i },
                        confirmation: true
+
+  
+   def self.guest
+       find_by(email: "test@com") do |user|
+              user.password = "111aaa" 
+       end
+   end
 end
