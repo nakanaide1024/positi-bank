@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  
+
+  devise_scope :user do
+    post "users/guest_sign_in", to: "sessions#new_guest"
+  end
+
   root to: "top#index"
   get "/taken", to: "top#show"
   get "/blogs.:id", to: "blogs#index"
