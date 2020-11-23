@@ -16,7 +16,10 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true, uniqueness: { case_sensitive: true },
                        length: { minimum: 3, maximum: 10 }
-  validates :password, format: { with: /\A[a-z0-9]+\z/i },
+
+  VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i
+  validates :password, length: { minimum: 6},
+                       format: { with: VALID_PASSWORD_REGEX },
                        confirmation: true
 
   
