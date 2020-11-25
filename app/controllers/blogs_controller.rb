@@ -27,8 +27,11 @@ class BlogsController < ApplicationController
   end
 
   def update
-    @blog.update(blog_params)
-    redirect_to posits_path
+    if @blog.update(blog_params)
+      redirect_to posits_path
+    else
+      render :edit
+    end
   end
 
   def destroy
