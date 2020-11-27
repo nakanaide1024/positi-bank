@@ -67,23 +67,23 @@ RSpec.describe 'ブログの編集', type: :system do
       # ログインボタンを押す
       find('input[name="commit"]').click
       # 編集したい自分のブログのタイトルをクリックする
-      all(".blog")[0].hover.find_link("#{@blog.title}", href: blogs_path(@blog)).click
+      all('.blog')[0].hover.find_link(@blog.title.to_s, href: blogs_path(@blog)).click
       # 編集したいブログの詳細ページに遷移する
       visit blogs_path(@blog)
       # 編集するボタンをおす
-      find_link("編集する", href: edit_blog_path(@blog) ).click
+      find_link('編集する', href: edit_blog_path(@blog)).click
       # ブログ内容を編集する
-      fill_in 'blog_title', with: "新しいタイトル"
-      fill_in 'blog_text', with: "新しい記事"
+      fill_in 'blog_title', with: '新しいタイトル'
+      fill_in 'blog_text', with: '新しい記事'
       # 更新ボタンを押してもレコードの数は変化せず、マイページに遷移する
       expect do
-      find('input[name="commit"]').click
+        find('input[name="commit"]').click
       end.to change { Blog.count }.by(0)
       # マイページでは編集されたブログのタイトルが表示されている
-      expect(page).to have_content("新しいタイトル")
+      expect(page).to have_content('新しいタイトル')
       # 編集されたブログの詳細へ飛ぶと、編集後のブログの記事に更新されている
-      all(".blog")[0].hover.find_link("新しいタイトル", href: blogs_path(@blog)).click
-      expect(page).to have_content("新しい記事")
+      all('.blog')[0].hover.find_link('新しいタイトル', href: blogs_path(@blog)).click
+      expect(page).to have_content('新しい記事')
     end
   end
   context 'ブログが編集できない時' do
@@ -96,14 +96,14 @@ RSpec.describe 'ブログの編集', type: :system do
       # ログインボタンを押す
       find('input[name="commit"]').click
       # 編集したい自分のブログのタイトルをクリックする
-      all(".blog")[0].hover.find_link("#{@blog.title}", href: blogs_path(@blog)).click
+      all('.blog')[0].hover.find_link(@blog.title.to_s, href: blogs_path(@blog)).click
       # 編集したいブログの詳細ページに遷移する
       visit blogs_path(@blog)
       # 編集するボタンをおす
-      find_link("編集する", href: edit_blog_path(@blog) ).click
+      find_link('編集する', href: edit_blog_path(@blog)).click
       # 誤った編集情報を入力する
-      fill_in "blog_title", with: ""
-      fill_in "blog_text", with: ""
+      fill_in 'blog_title', with: ''
+      fill_in 'blog_text', with: ''
       # 更新ボタンを押す
       find('input[name="commit"]').click
       # 編集ページに戻っている

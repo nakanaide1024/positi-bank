@@ -17,22 +17,21 @@ RSpec.describe Blog, type: :model do
     end
     context 'blogの保存がうまく行かない時' do
       it 'タイトルとテキストが入力されなければ登録できない' do
-        @blog.title = ""
-        @blog.text = ""
+        @blog.title = ''
+        @blog.text = ''
         @blog.valid?
         expect(@blog.errors.full_messages).to include("Text can't be blank", "Title can't be blank")
       end
-      it 'テキストだけ入力されていてもタイトルが入力されていなければ登録できない'do
-        @blog.title = ""
+      it 'テキストだけ入力されていてもタイトルが入力されていなければ登録できない' do
+        @blog.title = ''
         @blog.valid?
         expect(@blog.errors.full_messages).to include("Title can't be blank")
       end
-      it 'タイトルだけ入力されていてもテキストが入力されていなければ登録できない'do
-        @blog.text = ""
+      it 'タイトルだけ入力されていてもテキストが入力されていなければ登録できない' do
+        @blog.text = ''
         @blog.valid?
         expect(@blog.errors.full_messages).to include("Text can't be blank")
       end
     end
   end
- 
 end

@@ -17,15 +17,14 @@ class User < ApplicationRecord
   validates :nickname, presence: true, uniqueness: { case_sensitive: true },
                        length: { minimum: 3, maximum: 10 }
 
-  VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i
-  validates :password, length: { minimum: 6},
+  VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i.freeze
+  validates :password, length: { minimum: 6 },
                        format: { with: VALID_PASSWORD_REGEX },
                        confirmation: true
 
-  
-   def self.guest
-       find_by(email: "test@com") do |user|
-              user.password = "111aaa" 
-       end
-   end
+  def self.guest
+    find_by(email: 'test@com') do |user|
+      user.password = '111aaa'
+    end
+  end
 end
