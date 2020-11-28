@@ -56,6 +56,8 @@ require 'rails_helper'
 RSpec.describe 'ブログの編集', type: :system do
   before do
     @blog = FactoryBot.create(:blog)
+    @blog2 = FactoryBot.create(:blog)
+
   end
   context 'ブログが編集できる時' do
     it '自分のブログの詳細ページに遷移すると、編集ボタンが表示され、ボタンを押すと編集ページに遷移し編集できる' do
@@ -67,7 +69,7 @@ RSpec.describe 'ブログの編集', type: :system do
       # ログインボタンを押す
       find('input[name="commit"]').click
       # 編集したい自分のブログのタイトルをクリックする
-      all('.blog')[0].hover.find_link(@blog.title.to_s, href: blogs_path(@blog)).click
+      all('.blog')[1].hover.find_link(@blog.title.to_s, href: blogs_path(@blog)).click
       # 編集したいブログの詳細ページに遷移する
       visit blogs_path(@blog)
       # 編集するボタンをおす
@@ -82,7 +84,7 @@ RSpec.describe 'ブログの編集', type: :system do
       # マイページでは編集されたブログのタイトルが表示されている
       expect(page).to have_content('新しいタイトル')
       # 編集されたブログの詳細へ飛ぶと、編集後のブログの記事に更新されている
-      all('.blog')[0].hover.find_link('新しいタイトル', href: blogs_path(@blog)).click
+      all('.blog')[1].hover.find_link('新しいタイトル', href: blogs_path(@blog)).click
       expect(page).to have_content('新しい記事')
     end
   end
@@ -96,7 +98,7 @@ RSpec.describe 'ブログの編集', type: :system do
       # ログインボタンを押す
       find('input[name="commit"]').click
       # 編集したい自分のブログのタイトルをクリックする
-      all('.blog')[0].hover.find_link(@blog.title.to_s, href: blogs_path(@blog)).click
+      all('.blog')[1].hover.find_link(@blog.title.to_s, href: blogs_path(@blog)).click
       # 編集したいブログの詳細ページに遷移する
       visit blogs_path(@blog)
       # 編集するボタンをおす
@@ -108,6 +110,21 @@ RSpec.describe 'ブログの編集', type: :system do
       find('input[name="commit"]').click
       # 編集ページに戻っている
       expect(current_path).to eq "/blogs/#{@blog.id}"
+    end
+    it '自分のブログでなければ編集できない' do
+      # マイページへ移動する
+      visit posits_path
+      # 正しいユーザー情報を入力する
+      fill_in 'email', with: @blog.user.email
+      fill_in 'password', with: @blog.user.password
+      # ログインボタンを押す
+      find('input[name="commit"]').click
+      # 自分以外のユーザーが作成したブログを選択する
+      all(".blog")[0].hover.find_link(@blog2.title.to_s, href: blogs_path(@blog2)).click
+      # 選択したブログの詳細にとぶ
+      visit blogs_path(@blog2)
+      # 編集ボタンがないことを確認する
+      expect(page).to have_no_content("編集する")
     end
   end
 end
