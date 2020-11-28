@@ -36,7 +36,7 @@ class BlogsController < ApplicationController
 
   def destroy
     @blog.destroy
-    redirect_to root_path
+    redirect_to posits_path
   end
 
   private

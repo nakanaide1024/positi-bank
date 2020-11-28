@@ -53,14 +53,88 @@ require 'rails_helper'
 #     end
 #   end
 # end
-RSpec.describe 'ブログの編集', type: :system do
+# RSpec.describe 'ブログの編集', type: :system do
+#   before do
+#     @blog = FactoryBot.create(:blog)
+#     @blog2 = FactoryBot.create(:blog)
+
+#   end
+#   context 'ブログが編集できる時' do
+#     it '自分のブログの詳細ページに遷移すると、編集ボタンが表示され、ボタンを押すと編集ページに遷移し編集できる' do
+#       # マイページへ移動する
+#       visit posits_path
+#       # 正しいユーザー情報を入力する
+#       fill_in 'email', with: @blog.user.email
+#       fill_in 'password', with: @blog.user.password
+#       # ログインボタンを押す
+#       find('input[name="commit"]').click
+#       # 編集したい自分のブログのタイトルをクリックする
+#       all('.blog')[1].hover.find_link(@blog.title.to_s, href: blogs_path(@blog)).click
+#       # 編集したいブログの詳細ページに遷移する
+#       visit blogs_path(@blog)
+#       # 編集するボタンをおす
+#       find_link('編集する', href: edit_blog_path(@blog)).click
+#       # ブログ内容を編集する
+#       fill_in 'blog_title', with: '新しいタイトル'
+#       fill_in 'blog_text', with: '新しい記事'
+#       # 更新ボタンを押してもレコードの数は変化せず、マイページに遷移する
+#       expect do
+#         find('input[name="commit"]').click
+#       end.to change { Blog.count }.by(0)
+#       # マイページでは編集されたブログのタイトルが表示されている
+#       expect(page).to have_content('新しいタイトル')
+#       # 編集されたブログの詳細へ飛ぶと、編集後のブログの記事に更新されている
+#       all('.blog')[1].hover.find_link('新しいタイトル', href: blogs_path(@blog)).click
+#       expect(page).to have_content('新しい記事')
+#     end
+#   end
+#   context 'ブログが編集できない時' do
+#     it '編集画面で正しく入力されていないと元の情報のままになる' do
+#       # マイページへ移動する
+#       visit posits_path
+#       # 正しいユーザー情報を入力する
+#       fill_in 'email', with: @blog.user.email
+#       fill_in 'password', with: @blog.user.password
+#       # ログインボタンを押す
+#       find('input[name="commit"]').click
+#       # 編集したい自分のブログのタイトルをクリックする
+#       all('.blog')[1].hover.find_link(@blog.title.to_s, href: blogs_path(@blog)).click
+#       # 編集したいブログの詳細ページに遷移する
+#       visit blogs_path(@blog)
+#       # 編集するボタンをおす
+#       find_link('編集する', href: edit_blog_path(@blog)).click
+#       # 誤った編集情報を入力する
+#       fill_in 'blog_title', with: ''
+#       fill_in 'blog_text', with: ''
+#       # 更新ボタンを押す
+#       find('input[name="commit"]').click
+#       # 編集ページに戻っている
+#       expect(current_path).to eq "/blogs/#{@blog.id}"
+#     end
+#     it '自分のブログでなければ編集できない' do
+#       # マイページへ移動する
+#       visit posits_path
+#       # 正しいユーザー情報を入力する
+#       fill_in 'email', with: @blog.user.email
+#       fill_in 'password', with: @blog.user.password
+#       # ログインボタンを押す
+#       find('input[name="commit"]').click
+#       # 自分以外のユーザーが作成したブログを選択する
+#       all(".blog")[0].hover.find_link(@blog2.title.to_s, href: blogs_path(@blog2)).click
+#       # 選択したブログの詳細にとぶ
+#       visit blogs_path(@blog2)
+#       # 編集ボタンがないことを確認する
+#       expect(page).to have_no_content("編集する")
+#     end
+#   end
+# end
+RSpec.describe "ブログの削除", type: :system do
   before do
     @blog = FactoryBot.create(:blog)
     @blog2 = FactoryBot.create(:blog)
-
   end
-  context 'ブログが編集できる時' do
-    it '自分のブログの詳細ページに遷移すると、編集ボタンが表示され、ボタンを押すと編集ページに遷移し編集できる' do
+  context 'ブログが削除できる時' do
+    it '自分が作成したブログであれば削除でき、その後マイページへ遷移する' do
       # マイページへ移動する
       visit posits_path
       # 正しいユーザー情報を入力する
@@ -68,63 +142,20 @@ RSpec.describe 'ブログの編集', type: :system do
       fill_in 'password', with: @blog.user.password
       # ログインボタンを押す
       find('input[name="commit"]').click
-      # 編集したい自分のブログのタイトルをクリックする
+      # 削除したい自分のブログのタイトルをクリックする
       all('.blog')[1].hover.find_link(@blog.title.to_s, href: blogs_path(@blog)).click
-      # 編集したいブログの詳細ページに遷移する
+      # ブログ詳細に遷移する
       visit blogs_path(@blog)
-      # 編集するボタンをおす
-      find_link('編集する', href: edit_blog_path(@blog)).click
-      # ブログ内容を編集する
-      fill_in 'blog_title', with: '新しいタイトル'
-      fill_in 'blog_text', with: '新しい記事'
-      # 更新ボタンを押してもレコードの数は変化せず、マイページに遷移する
+      # 削除ボタンを押しダイアログのOKを押すと、ブログテーブルのレコードが一つ減り、マイページへ遷移する
       expect do
-        find('input[name="commit"]').click
-      end.to change { Blog.count }.by(0)
-      # マイページでは編集されたブログのタイトルが表示されている
-      expect(page).to have_content('新しいタイトル')
-      # 編集されたブログの詳細へ飛ぶと、編集後のブログの記事に更新されている
-      all('.blog')[1].hover.find_link('新しいタイトル', href: blogs_path(@blog)).click
-      expect(page).to have_content('新しい記事')
-    end
-  end
-  context 'ブログが編集できない時' do
-    it '編集画面で正しく入力されていないと元の情報のままになる' do
-      # マイページへ移動する
-      visit posits_path
-      # 正しいユーザー情報を入力する
-      fill_in 'email', with: @blog.user.email
-      fill_in 'password', with: @blog.user.password
-      # ログインボタンを押す
-      find('input[name="commit"]').click
-      # 編集したい自分のブログのタイトルをクリックする
-      all('.blog')[1].hover.find_link(@blog.title.to_s, href: blogs_path(@blog)).click
-      # 編集したいブログの詳細ページに遷移する
-      visit blogs_path(@blog)
-      # 編集するボタンをおす
-      find_link('編集する', href: edit_blog_path(@blog)).click
-      # 誤った編集情報を入力する
-      fill_in 'blog_title', with: ''
-      fill_in 'blog_text', with: ''
-      # 更新ボタンを押す
-      find('input[name="commit"]').click
-      # 編集ページに戻っている
-      expect(current_path).to eq "/blogs/#{@blog.id}"
-    end
-    it '自分のブログでなければ編集できない' do
-      # マイページへ移動する
-      visit posits_path
-      # 正しいユーザー情報を入力する
-      fill_in 'email', with: @blog.user.email
-      fill_in 'password', with: @blog.user.password
-      # ログインボタンを押す
-      find('input[name="commit"]').click
-      # 自分以外のユーザーが作成したブログを選択する
-      all(".blog")[0].hover.find_link(@blog2.title.to_s, href: blogs_path(@blog2)).click
-      # 選択したブログの詳細にとぶ
-      visit blogs_path(@blog2)
-      # 編集ボタンがないことを確認する
-      expect(page).to have_no_content("編集する")
+        find_link("削除する", href: blog_path(@blog)).click
+        expect(page.accept_confirm).to eq '削除しますか？'
+        expect(page).to have_no_content('削除しますか？')
+      end.to change { Blog.count }.by(-1)
+      # マイページに遷移していることを確認する
+      expect(current_path).to eq posits_path
+      # 削除したブログのタイトルがなくなっているのを確認する
+      expect(page).to have_no_content(@blog.title.to_s)
     end
   end
 end
