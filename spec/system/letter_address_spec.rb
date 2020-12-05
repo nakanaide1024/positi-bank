@@ -19,8 +19,6 @@ RSpec.describe '感謝状の登録', type: :system do
        visit user_path(@posit.user.id)
        # 感謝状を送るボタンを押す
        find_link('感謝状を送る', href: new_user_address_path(@posit.user.id)).click
-       # 感謝状の入力フォームに遷移する
-       visit new_user_address_path(@posit.user.id)
        # 感謝状の内容を入力する
        fill_in 'letter_address_thanks', with: @thanks.thanks
        # 感謝状を送るボタンを押すとaddressテーブルとletterテーブルのレコードが増える
@@ -30,5 +28,26 @@ RSpec.describe '感謝状の登録', type: :system do
        # マイページに遷移していることを確認する
        expect(current_path).to eq posits_path
     end
+  end
+  context '感謝状が登録できない時' do
+    it '感謝状の入力がされていなければ登録できない' do
+      # マイページに移動する
+      visit posits_path
+      # 正しいユーザー情報を入力する
+      fill_in 'email', with: @user.email
+      fill_in 'password', with: @user.password
+      # ログインボタンを押す
+      find('input[name="commit"]').click
+      # 送りたいユーザーのページへ遷移する
+      visit user_path(@posit.user.id)
+      # 感謝状を送るボタンを押す
+      find_link('感謝状を送る', href: new_user_address_path(@posit.user.id)).click
+      # 誤った感謝状の内容を入力する
+      fill_in 'letter_address_thanks', with: ''
+      # 感謝状を送るボタンを押す
+      find('input[name="commit"]').click
+      # 再び入力フォームに遷移していることを確認する
+      expect(current_path).to eq "/users/#{@posit.user.id}/addresses"
+    end 
   end
 end

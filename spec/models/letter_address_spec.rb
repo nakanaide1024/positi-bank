@@ -13,7 +13,6 @@ RSpec.describe LetterAddress, type: :model do
     context '感謝状が保存できない時' do
       it '感謝状の内容が入力されていなければ保存できない' do
         @thanks.thanks = ''
-        binding.pry
         @thanks.valid?
         expect(@thanks.errors.full_messages).to include("Thanks can't be blank")
       end
