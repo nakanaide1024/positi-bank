@@ -1,6 +1,5 @@
 FactoryBot.define do
-  factory :letter do
+  factory :letter_address do
     thanks { Faker::Lorem.sentence }
-    association :user
   end
 end

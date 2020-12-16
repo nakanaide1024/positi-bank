@@ -15,13 +15,13 @@ RSpec.describe 'プロフィールの登録', type: :system do
       # ログインボタンを押す
       find('input[name="commit"]').click
       # 登録ボタンをクリックする
-      find_link("登録する", href: new_profile_path).click
+      find_link('登録する', href: new_profile_path).click
       # プロフィールを入力する
-      fill_in "profile_profile", with: @profile.profile
+      fill_in 'profile_profile', with: @profile.profile
       # 登録ボタンをクリックするとプロフィールテーブルのレコードが一つ増えている
-      expect{
+      expect  do
         find('input[name="commit"]').click
-      }.to change { Profile.count }.by(1)
+      end.to change { Profile.count }.by(1)
       # マイページに遷移してるのを確認する
       expect(current_path).to eq posits_path
     end
@@ -41,13 +41,13 @@ RSpec.describe 'プロフィールの編集機能' do
       # ログインボタンを押す
       find('input[name="commit"]').click
       # ボタンをクリックする
-      find_link("編集する", href: edit_profile_path(@profile)).click
+      find_link('編集する', href: edit_profile_path(@profile)).click
       # プロフィールを入力する
-      fill_in "profile_profile", with: "新しいプロフィール"
+      fill_in 'profile_profile', with: '新しいプロフィール'
       # 編集ボタンをクリックしてもプロフィールテーブルのレコードは増えない
-      expect{
+      expect  do
         find('input[name="commit"]').click
-      }.to change { Profile.count }.by(0)
+      end.to change { Profile.count }.by(0)
       # マイページに遷移してるのを確認する
       expect(current_path).to eq posits_path
     end

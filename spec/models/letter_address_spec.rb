@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe Letter, type: :model do
+RSpec.describe LetterAddress, type: :model do
   before do
-    @thanks = FactoryBot.build(:letter)
+    @thanks = FactoryBot.build(:letter_address)
   end
   describe '感謝状の保存' do
     context '感謝状が保存できる時' do
