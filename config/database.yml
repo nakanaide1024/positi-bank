@@ -51,5 +51,6 @@ test:
 production:
   <<: *default
   database: positi_bank_production
-  username: positi_bank
-  password: <%= ENV['POSITI_BANK_DATABASE_PASSWORD'] %>
+  username: root
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  socket: /var/lib/mysql/mysql.sock
