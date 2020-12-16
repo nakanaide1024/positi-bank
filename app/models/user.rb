@@ -23,7 +23,7 @@ class User < ApplicationRecord
                        confirmation: true
 
   def self.guest
-    find_by(email: 'test@com') do |user|
+    find_or_create_by!(email: 'test@com') do |user|
       user.password = '111aaa'
     end
   end
