@@ -3,7 +3,7 @@
 # アプリケーションの概要
 
 ■アプリURL<br>
-ec2-52-196-23-171.ap-northeast-1.compute.amazonaws.com
+[ec2-52-196-23-171.ap-northeast-1.compute.amazonaws.com](url)
 
 - ポジティブな情報が集まるサイト。
 - 見つけた小さな幸せや感動したこと等を呟きやブログで発信。
