@@ -2,6 +2,7 @@
 
 # アプリケーションの概要
 
+⚠︎サイトは現在非アクティブ
 ■アプリURL<br>
 ec2-52-196-23-171.ap-northeast-1.compute.amazonaws.com
 
